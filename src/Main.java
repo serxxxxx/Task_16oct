@@ -22,7 +22,7 @@ public class Main {
             if ( boundedRandomValue <=chance[i]){
                 a = value[i];
                 break; }
-            chance[i+1]+=chance[i];       }
+            chance[i+1]+=chance[i];}
 
         return a;
     }
