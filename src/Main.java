@@ -15,9 +15,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static String func(String[ ] value, int [ ] chance){
         String a = "errlogic"; // переменная для отладки
-              for(int i = 0; i < value.length; i++)
+        int rigthBound = 0;
+        for(int i = 0; i < chance.length; i++)
         {
-            int boundedRandomValue = ThreadLocalRandom.current().nextInt(0, 100);
+           rigthBound += chance[i];}
+
+
+
+            for(int i = 0; i < value.length; i++)
+        {
+            int boundedRandomValue = ThreadLocalRandom.current().nextInt(0, rigthBound);
 
             if ( boundedRandomValue <=chance[i]){
                 a = value[i];
@@ -32,15 +39,15 @@ public class Main {
         int ne = 0;
         int nuzhen = 0;
        for(int i = 0; i < 101; i++) {
-            String result = func(new String[]{"Пейсинг", "не", "нужен"}, new int[]{10,10,10});
+            String result = func(new String[]{"Пейсинг", "не", "нужен"}, new int[]{10,61,30});
             if (result=="Пейсинг") {
-                 p=p+1;
+                 p+=1;
             }
             else if (result=="не") {
-                ne=ne+1;
+                ne+=1;
             }
             else if (result=="нужен") {
-                nuzhen=nuzhen+1;
+                nuzhen+=1;
             }
         }
         System.out.println("\"Пейсинг\": " + p + ", \"не\": "+ ne+ ", \"нужен\":"+nuzhen);
